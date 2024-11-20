@@ -1,4 +1,4 @@
-\ProvidesPackage{trees}
+\ProvidesPackage{style/trees}
 
 %Import Packages and Libraries
 \usepackage{tikz}
@@ -48,35 +48,53 @@
 \def\DeclareAbSymbol#1#2#3{\expandafter\gdef\csname MH@symb@#1\endcsname{\tikz[baseline=#2,scale=0.15,draw=absymbols]{#3}}}
 
 \tikzset{dot/.style={circle,fill=symbols,draw=symbols,inner sep=0pt,minimum size=0.5mm}}
-\DeclareSymbol{X}{-2.4}{\node[dot] {};}
-\DeclareSymbol{0}{0}{\node[dot]}
-\DeclareSymbol{1}{0}{\draw[white] (-.5,0) -- (.5,0); \draw (0,0)  -- (0,1.5) node[dot] {};}
-\DeclareSymbol{2}{0}{\draw (-0.5,1.5) node[dot] {} -- (0,0) -- (0.5,1.5) node[dot] {};}
-\DeclareSymbol{3}{0}{\draw (0,0) -- (0,1.5) node[dot] {}; \draw (-.7,1.3) node[dot] {} -- (0,0) -- (.7,1.3) node[dot] {};}
-\DeclareSymbol{31}{-3}{\draw (0,0) -- (0,-1) -- (1,0) node[dot] {}; \draw (0,0) -- (0,1.2) node[dot] {}; \draw (-.7,1) node[dot] {} -- (0,0) -- (.7,1) node[dot] {};}
-\DeclareSymbol{30}{-3}{\draw (0,0) -- (0,-1); \draw (0,0) -- (0,1.2) node[dot] {}; \draw (-.7,1) node[dot] {} -- (0,0) -- (.7,1) node[dot] {};}
-\DeclareSymbol{32}{-3}{\draw (0,0) -- (0,-1); \draw (1,0) node[dot] {} -- (0,-1) -- (-1,0) node[dot] {}; \draw (0,0) -- (0,1.2) node[dot] {}; \draw (-.7,1) node[dot] {} -- (0,0) -- (.7,1) node[dot] {};}
-\DeclareSymbol{32b}{-4.3}{\draw (0,0.5) -- (0,-1); \draw (1,0) node[dot] {} -- (0,-1) -- (-1,0) node[dot] {};}
-\DeclareSymbol{22}{-3}{\draw (0,0.3) -- (0,-1); \draw (1,0) node[dot] {} -- (0,-1) -- (-1,0) node[dot] {};\draw (-.7,1) node[dot] {} -- (0,0.3) -- (.7,1) node[dot] {};}
-\DeclareSymbol{20}{-3}{\draw (0,0) -- (0,-1);\draw (-.7,1) node[dot] {} -- (0,0) -- (.7,1) node[dot] {};}
-\DeclareSymbol{12}{-3}{\draw (0,0.3) -- (0,-1); \draw (1,0) node[dot] {} -- (0,-1) -- (-1,0) node[dot] {};\draw (-.7,1) node[dot] {} -- (0,0.3);}
-\DeclareSymbol{10}{-3}{\draw (0,0.3) -- (0,-1);\draw (-.7,1) node[dot] {} -- (0,0.3);}
-\DeclareSymbol{21}{-3}{\draw (0,0.3) -- (0,-1) -- (1,0) node[dot] {};\draw (-.7,1) node[dot] {} -- (0,0.3) -- (.7,1) node[dot] {};}
-%symbols in regularity structure
-\tikzset{abdot/.style={circle,fill=absymbols,draw=absymbols,inner sep=0pt,minimum size=0.5mm}}
-\DeclareAbSymbol{Xr}{-2.4}{\node[abdot] {};}
-\DeclareAbSymbol{0r}{0}{\node[abdot]}
-\DeclareAbSymbol{1r}{0}{\draw[white] (-.5,0) -- (.5,0); \draw (0,0)  -- (0,1.5) node[abdot] {};}
-\DeclareAbSymbol{2r}{0}{\draw (-0.5,1.5) node[abdot] {} -- (0,0) -- (0.5,1.5) node[abdot] {};}
-\DeclareAbSymbol{3r}{0}{\draw (0,0) -- (0,1.5) node[abdot] {}; \draw (-.7,1.3) node[abdot] {} -- (0,0) -- (.7,1.3) node[abdot] {};}
-\DeclareAbSymbol{31r}{-3}{\draw (0,0) -- (0,-1) -- (1,0) node[abdot] {}; \draw (0,0) -- (0,1.2) node[abdot] {}; \draw (-.7,1) node[abdot] {} -- (0,0) -- (.7,1) node[abdot] {};}
-\DeclareAbSymbol{30r}{-3}{\draw (0,0) -- (0,-1); \draw (0,0) -- (0,1.2) node[abdot] {}; \draw (-.7,1) node[abdot] {} -- (0,0) -- (.7,1) node[abdot] {};}
-\DeclareAbSymbol{32r}{-3}{\draw (0,0) -- (0,-1); \draw (1,0) node[abdot] {} -- (0,-1) -- (-1,0) node[abdot] {}; \draw (0,0) -- (0,1.2) node[abdot] {}; \draw (-.7,1) node[abdot] {} -- (0,0) -- (.7,1) node[abdot] {};}
-\DeclareAbSymbol{32br}{-4.3}{\draw (0,0.5) -- (0,-1); \draw (1,0) node[abdot] {} -- (0,-1) -- (-1,0) node[abdot] {};}
-\DeclareAbSymbol{22r}{-3}{\draw (0,0.3) -- (0,-1); \draw (1,0) node[abdot] {} -- (0,-1) -- (-1,0) node[abdot] {};\draw (-.7,1) node[abdot] {} -- (0,0.3) -- (.7,1) node[abdot] {};}
-\DeclareAbSymbol{20r}{-3}{\draw (0,0) -- (0,-1);\draw (-.7,1) node[abdot] {} -- (0,0) -- (.7,1) node[abdot] {};}
-\DeclareAbSymbol{12r}{-3}{\draw (0,0.3) -- (0,-1); \draw (1,0) node[abdot] {} -- (0,-1) -- (-1,0) node[abdot] {};\draw (-.7,1) node[abdot] {} -- (0,0.3);}
-\DeclareAbSymbol{10r}{-3}{\draw (0,0.3) -- (0,-1);\draw (-.7,1) node[abdot] {} -- (0,0.3);}
-\DeclareAbSymbol{21r}{-3}{\draw (0,0.3) -- (0,-1) -- (1,0) node[abdot] {};\draw (-.7,1) node[abdot] {} -- (0,0.3) -- (.7,1) node[abdot] {};}
-
+\DeclareSymbol{X}{-2.4}{\draw (0,0) node[dot] {}; \draw[line width=0.2mm] (0, 0) node[right, scale = .6] {$a$}}
+\DeclareSymbol{Xb}{-2.7}{\draw (0,0) node[dot] {}; \draw[line width=0.2mm] (0, 0) node[right, scale = .6] {$b$}}
+\DeclareSymbol{Xc}{-2.4}{\draw (0,0) node[dot] {}; \draw[line width=0.2mm] (0, 0) node[right, scale = .6] {$c$}}
+\DeclareSymbol{1}{0}{\draw (0,0) node[dot] {} -- (0,1.5) node[dot] {}; 
+	\draw[line width=0.2mm]
+	(0,0) node[right, scale = .6] {$a$} 
+	(0, 1.5) node[left, scale = .6] {$b$};}
+\DeclareSymbol{1cb}{0}{\draw (0,0) node[dot] {} -- (0,1.5) node[dot] {}; 
+	\draw[line width=0.2mm]
+	(0,0) node[right, scale = .6] {$b$} 
+	(0, 1.5) node[left, scale = .6] {$c$};}
+\DeclareSymbol{1ac}{0}{\draw (0,0) node[dot] {} -- (0,1.5) node[dot] {}; 
+	\draw[line width=0.2mm]
+	(0,0) node[right, scale = .6] {$a$} 
+	(0, 1.5) node[left, scale = .6] {$c$};}
+\DeclareSymbol{10}{-3}{\draw (0,1) node[dot] {} -- (0,0) node[dot] {} -- (0,-1) node[dot] {}; 
+	\draw[line width=0.2mm] 
+	(0,1) node[right, scale = .6] {$c$} 
+	(0,0) node[left, scale = .6] {$b$} 
+	(0, -1) node[right, scale = .6] {$a$};}
+\DeclareSymbol{2}{0}{
+	\draw (-0.5,1.5) node[dot] {} -- (0,0) node[dot] {} -- (0.5,1.5) node[dot] {};
+	\draw[line width=0.2mm] 
+	(-0.5,1.5) node[left, scale = .6] {$b$} 
+	(0, 0) node[right,scale=.6] {$a$} 
+	(0.5,1.5) node[right,scale=.6] {$c$};}
+\DeclareSymbol{3}{0}{\draw (0,0) node[dot] {} -- (0,1.5) node[dot] {}; \draw (-.7,1.3) node[dot] {} -- (0,0) -- (.7,1.3) node[dot] {};
+	\draw[line width=0.2mm] 
+	(0,0) node[right, scale = .6] {$a$} 
+	(0, 1.5) node[above, scale = .6] {$c$}
+	(-.7,1.3) node[left, scale = .6] {$b$} 
+	(.7,1.3) node[right, scale = .6] {$d$};}
+\DeclareSymbol{20}{-3}{\draw (0,0) node[dot] {} -- (0,-1) node[dot] {};\draw (-.7,1) node[dot] {} -- (0,0) -- (.7,1) node[dot] {};
+	\draw[line width=0.2mm] (0,0) node[left, scale = .6] {$b$} 
+	(0, -1) node[right, scale = .6] {$a$} 
+	(-.7,1) node[left, scale = .6] {$c$} 
+	(.7,1) node[right, scale = .6] {$d$};}
+\DeclareSymbol{100}{-2}{\draw (0,2) node[dot] {} -- (0,1) node[dot] {} -- (0,0) node[dot] {} -- (0,-1) node[dot] {};
+	\draw[line width=0.2mm] 
+	(0,-1) node[right, scale = .6] {$a$} 
+	(0,0) node[left, scale = .6] {$b$} 
+	(0,1) node[right, scale = .6] {$c$} 
+	(0,2) node[left, scale = .6] {$d$};}
+\DeclareSymbol{X10}{1}{\draw (-0.5,1) node[dot] {} -- (0,0) node[dot] {} -- (0.5,1) node[dot] {} -- (0.5,2) node[dot] {};
+	\draw[line width=0.2mm] 
+	(-0.5,1) node[left, scale = .6] {$a$} 
+	(0, 0) node[below,scale=.6] {$d$} 
+	(0.5,1) node[right,scale=.6] {$b$} 
+	(0.5,2) node[above,scale=.6] {$d$};}
 

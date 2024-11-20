@@ -48,9 +48,9 @@
 \def\DeclareAbSymbol#1#2#3{\expandafter\gdef\csname MH@symb@#1\endcsname{\tikz[baseline=#2,scale=0.15,draw=absymbols]{#3}}}
 
 \tikzset{dot/.style={circle,fill=symbols,draw=symbols,inner sep=0pt,minimum size=0.5mm}}
-\DeclareSymbol{X}{-2.4}{\draw (0,0) node[dot] {}; \draw[line width=0.2mm] (0, 0) node[right, scale = .6] {$a$}}
-\DeclareSymbol{Xb}{-2.7}{\draw (0,0) node[dot] {}; \draw[line width=0.2mm] (0, 0) node[right, scale = .6] {$b$}}
-\DeclareSymbol{Xc}{-2.4}{\draw (0,0) node[dot] {}; \draw[line width=0.2mm] (0, 0) node[right, scale = .6] {$c$}}
+\DeclareSymbol{X}{-2.4}{\draw[white] (-.5,0) -- (.5,0); \draw (0,0) node[dot] {}; \draw[line width=0.2mm] (0, 0) node[right, scale = .6] {$a$}}
+\DeclareSymbol{Xb}{-2.6}{\draw[white] (-.5,0) -- (.5,0); \draw (0,0) node[dot] {}; \draw[line width=0.2mm] (0, 0) node[right, scale = .6] {$b$}}
+\DeclareSymbol{Xc}{-2.4}{\draw[white] (-.5,0) -- (.5,0); \draw (0,0) node[dot] {}; \draw[line width=0.2mm] (0, 0) node[right, scale = .6] {$c$}}
 \DeclareSymbol{1}{0}{\draw (0,0) node[dot] {} -- (0,1.5) node[dot] {}; 
 	\draw[line width=0.2mm]
 	(0,0) node[right, scale = .6] {$a$} 

@@ -273,13 +273,30 @@ since the \(\mathbf{Y}^{(2)}_s = \mathbf{1}\) if and only if \(\mathbf{Y}^{(1)}_
 Now, as 
 \begin{align*}
   \langle \mathbf{X}_{st}, \mathbf{Y}_s\rangle 
-  & = \sum_{f \in \CF} \langle f, \mathbf{Y}_s\rangle \langle \mathbf{X}_{st}, f\rangle
+  & = \sum_{f \in \CF_{N - 1}} \langle f, \mathbf{Y}_s\rangle \langle \mathbf{X}_{st}, f\rangle
     = Y_s \langle \mathbf{X}_{st}, \mathbf{1}\rangle 
       + \langle \<X'>, \mathbf{Y}_s\rangle \langle \mathbf{X}_{st}, \<X'>\rangle + \cdots\\
   & = Y_s + \langle \<X'>, \mathbf{Y}_s\rangle \delta X_{st} + \cdots
 \end{align*}
 where the last equality follows as \(\mathbf{X}_{st} \in \hom(\CH, \mathbb{R})\) so 
 \(\langle \mathbf{X}_{st}, \mathbf{1}\rangle = 1\). Thus, the Gubinelli derivative of \(Y\) against 
-\(X\) in this case is \(Y'_s = \langle \<X'>, \mathbf{Y}_s\rangle\).
+\(X\) in this case is \(Y'_s = \langle \<X'>, \mathbf{Y}_s\rangle\). To be more precise, we have 
+\[R^{\mathbf{1}}_{st} = \delta Y_{st} - Y'_s \delta X_{st} - 
+  \sum_{f \in \CF_{N - 1} \setminus \{\mathbf{1}, \<X'>\}} \langle f, \mathbf{Y}_s\rangle \langle \mathbf{X}_{st}, f\rangle.\]
+\begin{proposition}
+  Let \(\mathbf{Y} : [0, T] \to \CH^*_{N - 1}\) be a controlled rough path against the \(\gamma\)-H\"older 
+  rough path \(\mathbf{X}\). Then, denoting the two parameter process
+  \[I_{st}^a = \sum_{f \in \CF_{N - 1}} \langle f, \mathbf{Y}_s\rangle \langle \mathbf{X}_{st}, [f]_a\rangle\] 
+  we have that 
+  \[|\delta I_{sut}| = |I_{st} - I_{su} - I_{ut}| \lesssim |t - u|^p|u - s|^q\]
+  for some \(p + q > 1\).
+\end{proposition}
+\begin{proof}
+  Need to check.
+\end{proof}
+
+As a consequence of the above proposition, we may apply the sewing lemma to \(I_{st}\) to obtain 
+\[\int_s^t Y_r \dd X_r^i := \lim_{|\CP| \to 0} \sum_{(u, v) \in \CP} I_{uv}\]
+with \(\CP\) being a partition of \([s, t]\).
 
 \end{document}

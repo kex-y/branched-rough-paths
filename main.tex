@@ -174,7 +174,8 @@ can be viewed as \(\CH = \langle \CF \rangle\) with itself as its own coalgebra 
 By the property of the coproduct, if \(\CH^* = \langle \CF \rangle\) has product \(\nabla^*(f, g) = f * g\), then
 for any \(f, g \in \CF\) and \(h \in \CF\), we have the defining property for \(\nabla^*\):
 \[\langle f * g, h\rangle = \langle \nabla^*(f, g), h\rangle = \langle f \otimes g, \Delta h\rangle.\]
-Namely, if \(\Delta h = \sum_{i = 1}^k h_i \otimes h'_i\), then \(h_i * h'_i = h\) (Check!). 
+Namely, if \(\Delta h = \sum_{i = 1}^k h_i \otimes h'_i\), then \(h_i * h'_i = h\) (Check!). Moreover, 
+we observe that \(|f| + |g| = |f * g|\). 
 \(\langle \CF \rangle\) equipped with \(*\) forms an associative (\textit{non-commutative}) algebra 
 and we denote its coproduct by \(\delta :  \langle \CF \rangle \to  \langle \CF \rangle \otimes  \langle \CF \rangle\) 
 such that 
@@ -213,5 +214,29 @@ Thus, we can identify elements of \(\hom(\CH, \mathbb{R})\) with \(f \in \CH^*\)
 \begin{proposition}
   For all \(f \in G(\CH)\), \(f^{-1} = S^* f\) with \(S^*\) being the adjoint of the antipole.
 \end{proposition}
+
+\section{Branched Rough Paths}
+
+Finally, we can now define branched rough paths. Defining \(\CH^*_{(n)} = \langle \CF_{(n)}\rangle\) 
+where the notation \(^*\) indicates we are working in the dual space, we define 
+\[G_N(\CH) = \frac{G(\CH)}{G(\CH) \cap \bigoplus_{n \ge N + 1} \CH^*_{(n)}}\]
+where the fraction indicates the quotient group (it is not difficult the see that the denominator 
+is indeed a normal subgroup). Namely, we identify the forests in \(G(\CH)\) which has order greater 
+than \(N\) with the identity element.
+
+\begin{definition}
+  For a map \(\mathbf{X} : [0, T] \to G_N(\CH)\), we denote \(\mathbf{X}_{st} = \mathbf{X}^{-1}_s * \mathbf{X}_t\).
+  \(\mathbf{X}\) is a \(\gamma\)-H\"older branched rough path if 
+  \[\sup_{s < t \in [0, T]} \frac{|\langle \mathbf{X}_{st}, \tau\rangle|} {|t - s|^{\gamma|\tau|}} < \infty\]
+  for all \(\tau \in \CF_N\).
+
+  For a branched rough path \(\mathbf{X}\), we define its path component \(X^a\) by 
+  \[\delta X^a_{st} = \langle \mathbf{X}_{st}, \<X>\rangle.\]
+\end{definition}
+
+We observe that the path components of a \(\gamma\)-H\"older branched rough path is \(\gamma\)-H\"older. 
+Moreover, Chen's condition (that is \(\mathbf{X}_{st} = \mathbf{X}_{su} * \mathbf{X}_{ut}\)) is automatically 
+satisfied by branching rough paths. 
+
 
 \end{document}

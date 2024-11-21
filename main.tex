@@ -174,8 +174,13 @@ can be viewed as \(\CH = \langle \CF \rangle\) with itself as its own coalgebra 
 By the property of the coproduct, if \(\CH^* = \langle \CF \rangle\) has product \(\nabla^*(f, g) = f * g\), then
 for any \(f, g \in \CF\) and \(h \in \CF\), we have the defining property for \(\nabla^*\):
 \[\langle f * g, h\rangle = \langle \nabla^*(f, g), h\rangle = \langle f \otimes g, \Delta h\rangle.\]
-Namely, if \(\Delta h = \sum_{i = 1}^k h_i \otimes h'_i\), then \(h_i * h'_i = h\) (Check!). Moreover, 
-we observe that \(|f| + |g| = |f * g|\). 
+The product \(*\) is known as the \textit{convolution product} and we observe that for \(f, g \in \CF\), 
+\(\langle f * g, h\rangle = 1\) if and only if \(f \otimes g\) is a term of \(\Delta h\). For trees, the 
+convolution can be explicitly described by
+\[\tau_1 * \tau_2 = \tau_1 \tau_2 + \tau_1 *_t \tau_2\]
+for \(\tau_1, \tau_2 \in \CT\) where \(\tau_1 *_t \tau_2\) denotes the sum of all trees obtained 
+by attaching \(\tau_2\) to a vertex of \(\tau_1\).
+
 \(\langle \CF \rangle\) equipped with \(*\) forms an associative (\textit{non-commutative}) algebra 
 and we denote its coproduct by \(\delta :  \langle \CF \rangle \to  \langle \CF \rangle \otimes  \langle \CF \rangle\) 
 such that 
@@ -238,5 +243,43 @@ We observe that the path components of a \(\gamma\)-H\"older branched rough path
 Moreover, Chen's condition (that is \(\mathbf{X}_{st} = \mathbf{X}_{su} * \mathbf{X}_{ut}\)) is automatically 
 satisfied by branching rough paths. 
 
+For general trees \(\tau = [f]_a\), we interpret \(\langle \mathbf{X}_{st}, \tau\rangle = 
+  \int_s^t \langle \mathbf{X}_{sr}, f\rangle \dd X^a_r\) (note that here, the right hand side is strictly 
+formal and is simply a notation for the left hand side). Thus, 
+\[\langle \mathbf{X}_{st}, \<X> \rangle = \int_s^t \dd X^a_r = \delta X^a_{st}, \qquad
+  \langle \mathbf{X}_{st}, \<1> \rangle = \int_s^t \int_s^r \dd X^b_u \dd X^a_r,\]
+\[\langle \mathbf{X}_{st}, \<2>\rangle = \int_s^t \left(\int_s^r \dd X^b_u\right) \left(\int_s^r \dd X^c_u\right) \dd X^a_r,\] 
+and so on.
+
+\begin{definition}
+  A path \(\mathbf{Y} : [0, T] \to \CH_{N - 1} = \bigoplus_{n = 0}^{N - 1} \CH_{(n)}\) is a 
+  \(\mathbf{X}\)-controlled rough path for some \(\gamma\)-H\"older branched rough path \(\mathbf{X}\) if 
+  \[R^h_{st} = \langle h, \mathbf{Y}_t\rangle - \langle \mathbf{X}_{st} * h, \mathbf{Y}_s\rangle\]
+  satisfies 
+  \[\sup_{s < t \in [0, T]} \frac{|R^h_{st}|}{|t - s|^{(N - |h|)\gamma}} < \infty\] 
+  for all \(h \in \CF_{N - 1}\). We denote \(Y_t = \langle \mathbf{1}, \mathbf{Y}_t\rangle\) for the 
+  path component of \(\mathbf{Y}\).
+\end{definition}
+
+This definition corresponds to the usual definition of level 2 controlled rough paths in the following sense: 
+assuming we are in 1-dimension, testing against \(h = \mathbf{1}\), we obtain
+\[R^{\mathbf{1}}_{st} = Y_t - \langle \mathbf{X}_{st} * \mathbf{1}, \mathbf{Y}_s\rangle
+  = Y_t - \langle \mathbf{X}_{st} \otimes \mathbf{1}, \Delta \mathbf{Y}_s\rangle.\]
+Then, writing \(\Delta \mathbf{Y}_s = \sum \mathbf{Y}^{(1)}_s \otimes \mathbf{Y}^{(2)}_s\), we have 
+\[\langle \mathbf{X}_{st} \otimes \mathbf{1}, \Delta \mathbf{Y}_s\rangle
+  = \sum \langle \mathbf{X}_{st}, \mathbf{Y}^{(1)}_s\rangle \mathbf{1}_{\mathbf{1} = \mathbf{Y}^{(2)}_s} 
+  = \langle \mathbf{X}_{st}, \mathbf{Y}_s\rangle\]
+since the \(\mathbf{Y}^{(2)}_s = \mathbf{1}\) if and only if \(\mathbf{Y}^{(1)}_s = \mathbf{Y}_s\). 
+Now, as 
+\begin{align*}
+  \langle \mathbf{X}_{st}, \mathbf{Y}_s\rangle 
+  & = \sum_{f \in \CF} \langle f, \mathbf{Y}_s\rangle \langle \mathbf{X}_{st}, f\rangle
+    = Y_s \langle \mathbf{X}_{st}, \mathbf{1}\rangle 
+      + \langle \<X'>, \mathbf{Y}_s\rangle \langle \mathbf{X}_{st}, \<X'>\rangle + \cdots\\
+  & = Y_s + \langle \<X'>, \mathbf{Y}_s\rangle \delta X_{st} + \cdots
+\end{align*}
+where the last equality follows as \(\mathbf{X}_{st} \in \hom(\CH, \mathbb{R})\) so 
+\(\langle \mathbf{X}_{st}, \mathbf{1}\rangle = 1\). Thus, the Gubinelli derivative of \(Y\) against 
+\(X\) in this case is \(Y'_s = \langle \<X'>, \mathbf{Y}_s\rangle\).
 
 \end{document}

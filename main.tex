@@ -261,6 +261,8 @@ and so on.
   path component of \(\mathbf{Y}\).
 \end{definition}
 
+We now discuss the case where there is only one label and we omit it from the notations.
+
 This definition corresponds to the usual definition of level 2 controlled rough paths in the following sense: 
 assuming we are in 1-dimension, testing against \(h = \mathbf{1}\), we obtain
 \[R^{\mathbf{1}}_{st} = Y_t - \langle \mathbf{X}_{st} * \mathbf{1}, \mathbf{Y}_s\rangle 
@@ -309,8 +311,8 @@ where the last equality follows as \(\mathbf{X}_{st} \in \hom(\CH, \mathbb{R})\)
     & = (\langle f, \mathbf{Y}_s\rangle \langle \mathbf{X}_{su}, f\rangle - \langle f, \mathbf{Y}_u\rangle) 
         \langle \mathbf{X}_{ut}, [f]\rangle\\
     & = - R^f_{su} \langle \mathbf{X}_{ut}, [f]\rangle 
-      + (\langle f, \mathbf{Y}_s\rangle \langle \mathbf{X}_{su}, f\rangle -
-          \langle \mathbf{X}_{su} * f, \mathbf{Y}_s\rangle) 
+      + \underbrace{(\langle f, \mathbf{Y}_s\rangle \langle \mathbf{X}_{su}, f\rangle -
+          \langle \mathbf{X}_{su} * f, \mathbf{Y}_s\rangle)}_{\text{?}}
         \langle \mathbf{X}_{ut}, [f]\rangle\\
     & = \cdots
   \end{align*}
@@ -323,8 +325,18 @@ lemma to \(I_{st}\) to obtain
 \[\int_s^t Y_r \dd X_r := \lim_{|\CP| \to 0} \sum_{(u, v) \in \CP} I_{uv}\]
 with \(\CP\) being a partition of \([s, t]\) and we have the remainder inequality 
 \begin{align*}
-  & \left|\int_s^t Y_r \dd X_r - \sum_{f \in \CF_{N - 1}} \langle f, \mathbf{Y}_s\rangle \langle \mathbf{X}_{st}, [f]_a\rangle\right|\\
+  & \left|\int_s^t Y_r \dd X_r - \sum_{f \in \CF_{N - 1}} \langle f, \mathbf{Y}_s\rangle \langle \mathbf{X}_{st}, [f]\rangle\right|\\
   \lesssim & \left(\sum_{f \in \CF_{N - 1}} \|R^f\|_{(N - |f|)\gamma} \|\mathbf{X}^{[f]}\|_{(|f| + 1)\gamma}\right)|t - s|^{(N + 1)\gamma}
 \end{align*}
+We note that at this point \(\int_s^{\cdot} Y_r \dd X_r\) takes value in \(\mathbb{R}\) and is notably not a tree/forest 
+path. As we would like to talk about rough differential equations, we would like to extend the \(\mathbb{R}\)-valued 
+path \(\int_s^{\cdot} Y_r \dd X_r\) to a forest path \(\int_s^{\cdot} \mathbf{Y}_r \dd X_r\). This is achieved by 
+specifying \(\left\langle f, \int_s^{\cdot} \mathbf{Y}_r \dd X_r \right\rangle\) for each \(f \in \CF_{N - 1}^*\) 
+with 
+\[\left\langle \mathbf{1}, \int_s^{\cdot} \mathbf{Y}_r \dd X_r \right\rangle = \int_s^{\cdot} Y_r \dd X_r.\]
+For \(f \in \CF_{\le N - 2}\), we set 
+\[\left\langle [f], \int_0^{\cdot} \mathbf{Y}_r \dd X_r \right\rangle = \langle f, \mathbf{Y}_{\cdot}\rangle.\]
+
+
 
 \end{document}

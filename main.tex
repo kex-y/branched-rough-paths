@@ -263,13 +263,14 @@ and so on.
 
 This definition corresponds to the usual definition of level 2 controlled rough paths in the following sense: 
 assuming we are in 1-dimension, testing against \(h = \mathbf{1}\), we obtain
-\[R^{\mathbf{1}}_{st} = Y_t - \langle \mathbf{X}_{st} * \mathbf{1}, \mathbf{Y}_s\rangle
-  = Y_t - \langle \mathbf{X}_{st} \otimes \mathbf{1}, \Delta \mathbf{Y}_s\rangle.\]
-Then, writing \(\Delta \mathbf{Y}_s = \sum \mathbf{Y}^{(1)}_s \otimes \mathbf{Y}^{(2)}_s\), we have 
-\[\langle \mathbf{X}_{st} \otimes \mathbf{1}, \Delta \mathbf{Y}_s\rangle
-  = \sum \langle \mathbf{X}_{st}, \mathbf{Y}^{(1)}_s\rangle \mathbf{1}_{\mathbf{1} = \mathbf{Y}^{(2)}_s} 
-  = \langle \mathbf{X}_{st}, \mathbf{Y}_s\rangle\]
-since the \(\mathbf{Y}^{(2)}_s = \mathbf{1}\) if and only if \(\mathbf{Y}^{(1)}_s = \mathbf{Y}_s\). 
+\[R^{\mathbf{1}}_{st} = Y_t - \langle \mathbf{X}_{st} * \mathbf{1}, \mathbf{Y}_s\rangle 
+  = Y_t - \langle \mathbf{X}_{st}, \mathbf{Y}_s\rangle.\]
+  % = Y_t - \langle \mathbf{X}_{st} \otimes \mathbf{1}, \Delta \mathbf{Y}_s\rangle.\]
+% Then, writing \(\Delta \mathbf{Y}_s = \sum \mathbf{Y}^{(1)}_s \otimes \mathbf{Y}^{(2)}_s\), we have 
+% \[\langle \mathbf{X}_{st} \otimes \mathbf{1}, \Delta \mathbf{Y}_s\rangle
+%   = \sum \langle \mathbf{X}_{st}, \mathbf{Y}^{(1)}_s\rangle \mathbf{1}_{\mathbf{1} = \mathbf{Y}^{(2)}_s} 
+%   = \langle \mathbf{X}_{st}, \mathbf{Y}_s\rangle\]
+% since the \(\mathbf{Y}^{(2)}_s = \mathbf{1}\) if and only if \(\mathbf{Y}^{(1)}_s = \mathbf{Y}_s\). 
 Now, as 
 \begin{align*}
   \langle \mathbf{X}_{st}, \mathbf{Y}_s\rangle 
@@ -288,15 +289,42 @@ where the last equality follows as \(\mathbf{X}_{st} \in \hom(\CH, \mathbb{R})\)
   rough path \(\mathbf{X}\). Then, denoting the two parameter process
   \[I_{st}^a = \sum_{f \in \CF_{N - 1}} \langle f, \mathbf{Y}_s\rangle \langle \mathbf{X}_{st}, [f]_a\rangle\] 
   we have that 
-  \[|\delta I_{sut}| = |I_{st} - I_{su} - I_{ut}| \lesssim |t - u|^p|u - s|^q\]
-  for some \(p + q > 1\).
+  \[\|\delta I\|_{(N + 1)\gamma} \lesssim \sum_{f \in \CF_{N - 1}} \|R^f\|_{(N - |f|)\gamma} \|\mathbf{X}^{[f]}\|_{(|f| + 1)\gamma}\]
+  where we denote \(\mathbf{X}^f = \langle \mathbf{X}, f\rangle\).
 \end{proposition}
 \begin{proof}
-  Need to check.
+  Firstly, we observe that, for all \(f \in \CF_{N - 1}\),
+  \begin{align*}
+    \langle\mathbf{X}_{st}, [f]\rangle - \langle \mathbf{X}_{su}, [f]\rangle 
+    % & = \langle \mathbf{X}_{su} * \mathbf{X}_{ut}, [f]\rangle - \langle \mathbf{X}_{su}, [f]\rangle\\
+    % & = \langle \mathbf{X}_{su} \otimes \mathbf{X}_{ut}, \Delta [f]\rangle - \langle \mathbf{X}_{su}, [f]\rangle\\
+    & = \langle \mathbf{X}_{su} \otimes \mathbf{X}_{ut}, (\text{id} \otimes [-]) \Delta f\rangle\\
+    & = \langle \nabla (\mathbf{X}_{su} \otimes [-]^* \mathbf{X}_{ut}), f\rangle\\ 
+    & = \langle \mathbf{X}_{su}, f\rangle \langle \mathbf{X}_{ut}, [f]\rangle.
+  \end{align*}
+  Thus, adopting Einstein's summation convention, we have
+  \begin{align*}
+    \delta I_{sut} & = \langle f, \mathbf{Y}_s\rangle(\langle\mathbf{X}_{st}, [f]\rangle - \langle \mathbf{X}_{su}, [f]\rangle) 
+      - \langle f, \mathbf{Y}_u\rangle \langle \mathbf{X}_{ut}, [f]\rangle\\
+    & = (\langle f, \mathbf{Y}_s\rangle \langle \mathbf{X}_{su}, f\rangle - \langle f, \mathbf{Y}_u\rangle) 
+        \langle \mathbf{X}_{ut}, [f]\rangle\\
+    & = - R^f_{su} \langle \mathbf{X}_{ut}, [f]\rangle 
+      + (\langle f, \mathbf{Y}_s\rangle \langle \mathbf{X}_{su}, f\rangle -
+          \langle \mathbf{X}_{su} * f, \mathbf{Y}_s\rangle) 
+        \langle \mathbf{X}_{ut}, [f]\rangle\\
+    & = \cdots
+  \end{align*}
+  % Hence, we may conclude as each summand has order \(|u - s|^{(N - |f|)\gamma} |t - u|^{|f|\gamma} \le |t - s|^{N\gamma}\), 
+  % and the sum is finite.
 \end{proof}
 
-As a consequence of the above proposition, we may apply the sewing lemma to \(I_{st}\) to obtain 
-\[\int_s^t Y_r \dd X_r^i := \lim_{|\CP| \to 0} \sum_{(u, v) \in \CP} I_{uv}\]
-with \(\CP\) being a partition of \([s, t]\).
+As a consequence of the above proposition, in the case where \((N + 1) \gamma > 1\), we may apply the sewing 
+lemma to \(I_{st}\) to obtain 
+\[\int_s^t Y_r \dd X_r := \lim_{|\CP| \to 0} \sum_{(u, v) \in \CP} I_{uv}\]
+with \(\CP\) being a partition of \([s, t]\) and we have the remainder inequality 
+\begin{align*}
+  & \left|\int_s^t Y_r \dd X_r - \sum_{f \in \CF_{N - 1}} \langle f, \mathbf{Y}_s\rangle \langle \mathbf{X}_{st}, [f]_a\rangle\right|\\
+  \lesssim & \left(\sum_{f \in \CF_{N - 1}} \|R^f\|_{(N - |f|)\gamma} \|\mathbf{X}^{[f]}\|_{(|f| + 1)\gamma}\right)|t - s|^{(N + 1)\gamma}
+\end{align*}
 
 \end{document}

@@ -95,8 +95,8 @@ by first defining \(\Delta\) on \(\CF\) inductively and then extending linearly.
 Here are some examples:
 \begin{itemize}
   \item \(\Delta \<X> = \<X> \otimes \mathbf{1} + \mathbf{1} \otimes \<X>\).
-  \item \(\Delta \<1> = \<1> \otimes \mathbf{1} + \<X> \otimes \<Xb> + \mathbf{1} \otimes \<1>\).
-  \item \(\Delta \<2> = \<2> \otimes \mathbf{1} + \<X> \<Xb> \otimes \<Xc> + \<Xc> \otimes \<1> 
+  \item \(\Delta \<1> = \<1> \otimes \mathbf{1} + \<Xb> \otimes \<X> + \mathbf{1} \otimes \<1>\).
+  \item \(\Delta \<2> = \<2> \otimes \mathbf{1} + \<Xb> \<Xc> \otimes \<X> + \<Xc> \otimes \<1> 
     + \<Xb> \otimes \<1ac> + \mathbf{1} \otimes \<2>\).
 \end{itemize}
 
@@ -158,9 +158,9 @@ We give some examples:
 \begin{itemize}
   \item \(S \mathbf{1} = \mathbf{1}\).
   \item \(0 = \nabla (S \otimes \text{id}) \Delta \<X> = S \<X> + \<X>\). Thus, \(S \<X> = -\<X>\).
-  \item \(0 = \nabla (S \otimes \text{id}) \Delta \<1> = S \<1> + (S \<X>) \<Xb> + \<1>\). 
+  \item \(0 = \nabla (S \otimes \text{id}) \Delta \<1> = S \<1> + (S \<Xb>) \<X> + \<1>\). 
     Thus, \(S \<1> = -\<1> + \<X> \<Xb>\).
-  \item \(0 = \nabla (S \otimes \text{id}) \Delta \<2> = S \<2> + (S \<X> \<Xb>) \<Xc> + (S \<Xc>) \<1> + (S \<Xb>) \<1ac> + \<2>\).
+  \item \(0 = \nabla (S \otimes \text{id}) \Delta \<2> = S \<2> + (S \<Xb> \<Xc>) \<X> + (S \<Xc>) \<1> + (S \<Xb>) \<1ac> + \<2>\).
     Thus, \(S \<2> = -\<2> + \<Xc> \<1> + \<Xb> \<1ac> - \<X> \<Xb> \<Xc>\).
 \end{itemize}
 
@@ -179,7 +179,7 @@ The product \(*\) is known as the \textit{convolution product} and we observe th
 convolution can be explicitly described by
 \[\tau_1 * \tau_2 = \tau_1 \tau_2 + \tau_1 *_t \tau_2\]
 for \(\tau_1, \tau_2 \in \CT\) where \(\tau_1 *_t \tau_2\) denotes the sum of all trees obtained 
-by attaching \(\tau_2\) to a vertex of \(\tau_1\).
+by attaching \(\tau_1\) to a vertex of \(\tau_2\).
 
 \(\langle \CF \rangle\) equipped with \(*\) forms an associative (\textit{non-commutative}) algebra 
 and we denote its coproduct by \(\delta :  \langle \CF \rangle \to  \langle \CF \rangle \otimes  \langle \CF \rangle\) 

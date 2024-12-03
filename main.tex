@@ -258,13 +258,15 @@ and so on.
   satisfies 
   \[\sup_{s < t \in [0, T]} \frac{|R^h_{st}|}{|t - s|^{(N - |h|)\gamma}} < \infty\] 
   for all \(h \in \CF_{N - 1}\). We denote \(Y_t = \langle \mathbf{1}, \mathbf{Y}_t\rangle\) for the 
-  path component of \(\mathbf{Y}\).
+  path component of \(\mathbf{Y}\). Moreover, for \(h \in \CF_{N - 1}\), denote 
+  \(\partial^h_X Y_t = \langle h, \mathbf{Y}_t\rangle\). We call \(\partial^h_X Y_t\) the \(h\)-th Gubinelli 
+  derivative of \(\mathbf{Y}\) against \(\mathbf{X}\).
 \end{definition}
 
 We now discuss the case where there is only one label and we omit it from the notations.
 
 This definition corresponds to the usual definition of level 2 controlled rough paths in the following sense: 
-assuming we are in 1-dimension, testing against \(h = \mathbf{1}\), we obtain
+assuming we are in 1-dimension and \(N = 2\), testing against \(h = \mathbf{1}\), we obtain
 \[R^{\mathbf{1}}_{st} = Y_t - \langle \mathbf{X}_{st} * \mathbf{1}, \mathbf{Y}_s\rangle 
   = Y_t - \langle \mathbf{X}_{st}, \mathbf{Y}_s\rangle.\]
   % = Y_t - \langle \mathbf{X}_{st} \otimes \mathbf{1}, \Delta \mathbf{Y}_s\rangle.\]
@@ -276,16 +278,22 @@ assuming we are in 1-dimension, testing against \(h = \mathbf{1}\), we obtain
 Now, as 
 \begin{align*}
   \langle \mathbf{X}_{st}, \mathbf{Y}_s\rangle 
-  & = \sum_{f \in \CF_{N - 1}} \langle f, \mathbf{Y}_s\rangle \langle \mathbf{X}_{st}, f\rangle
+  & = \sum_{f \in \CF_{1}} \langle f, \mathbf{Y}_s\rangle \langle \mathbf{X}_{st}, f\rangle
     = Y_s \langle \mathbf{X}_{st}, \mathbf{1}\rangle 
-      + \langle \<X'>, \mathbf{Y}_s\rangle \langle \mathbf{X}_{st}, \<X'>\rangle + \cdots\\
-  & = Y_s + \langle \<X'>, \mathbf{Y}_s\rangle \delta X_{st} + \cdots
+      + \langle \<X'>, \mathbf{Y}_s\rangle \langle \mathbf{X}_{st}, \<X'>\rangle\\
+  & = Y_s + \langle \<X'>, \mathbf{Y}_s\rangle \delta X_{st}
 \end{align*}
 where the last equality follows as \(\mathbf{X}_{st} \in \hom(\CH, \mathbb{R})\) so 
 \(\langle \mathbf{X}_{st}, \mathbf{1}\rangle = 1\). Thus, the Gubinelli derivative of \(Y\) against 
-\(X\) in this case is \(Y'_s = \langle \<X'>, \mathbf{Y}_s\rangle\). To be more precise, we have 
-\[R^{\mathbf{1}}_{st} = \delta Y_{st} - Y'_s \delta X_{st} - 
-  \sum_{f \in \CF_{N - 1} \setminus \{\mathbf{1}, \<X'>\}} \langle f, \mathbf{Y}_s\rangle \langle \mathbf{X}_{st}, f\rangle.\]
+\(X\) in this case is \(Y'_s = \partial^{\<X'>}_X Y_s = \langle \<X'>, \mathbf{Y}_s\rangle\). 
+More generally, for any \(N\), we find that
+\begin{align*}
+  R^{\mathbf{1}}_{st} 
+  & = \delta Y_{st} - 
+  \sum_{f \in \CF_{N - 1} \setminus \{\mathbf{1}\}} \partial_X^f Y_s \langle \mathbf{X}_{st}, f\rangle\\
+  & = \delta Y_{st} - Y'_s \delta X_{st} - 
+    \sum_{f \in \CF_{N - 1} \setminus \{\mathbf{1}, \<X'>\}} \langle f, \mathbf{Y}_s\rangle \langle \mathbf{X}_{st}, f\rangle
+\end{align*}
 \begin{proposition}
   Let \(\mathbf{Y} : [0, T] \to \CH^*_{N - 1}\) be a controlled rough path against the \(\gamma\)-H\"older 
   rough path \(\mathbf{X}\). Then, denoting the two parameter process
@@ -329,14 +337,43 @@ with \(\CP\) being a partition of \([s, t]\) and we have the remainder inequalit
   \lesssim & \left(\sum_{f \in \CF_{N - 1}} \|R^f\|_{(N - |f|)\gamma} \|\mathbf{X}^{[f]}\|_{(|f| + 1)\gamma}\right)|t - s|^{(N + 1)\gamma}
 \end{align*}
 We note that at this point \(\int_s^{\cdot} Y_r \dd X_r\) takes value in \(\mathbb{R}\) and is notably not a tree/forest 
-path. As we would like to talk about rough differential equations, we would like to extend the \(\mathbb{R}\)-valued 
-path \(\int_s^{\cdot} Y_r \dd X_r\) to a forest path \(\int_s^{\cdot} \mathbf{Y}_r \dd X_r\). This is achieved by 
-specifying \(\left\langle f, \int_s^{\cdot} \mathbf{Y}_r \dd X_r \right\rangle\) for each \(f \in \CF_{N - 1}^*\) 
-with 
+path. As we would like to talk about rough differential equations, namely we would want to phrase a fixed point 
+argument involving rough integrals, we need to extend the \(\mathbb{R}\)-valued path \(\int_s^{\cdot} Y_r \dd X_r\) 
+to a forest path \(\int_s^{\cdot} \mathbf{Y}_r \dd X_r\). This is achieved by specifying 
+\(\partial^f_X \left(\int_s^{\cdot} \mathbf{Y}_r \dd X_r\right) = \left\langle f, \int_s^{\cdot} \mathbf{Y}_r \dd X_r \right\rangle\) 
+for each \(f \in \CF_{N - 1}^*\) with 
 \[\left\langle \mathbf{1}, \int_s^{\cdot} \mathbf{Y}_r \dd X_r \right\rangle = \int_s^{\cdot} Y_r \dd X_r.\]
 For \(f \in \CF_{\le N - 2}\), we set 
 \[\left\langle [f], \int_0^{\cdot} \mathbf{Y}_r \dd X_r \right\rangle = \langle f, \mathbf{Y}_{\cdot}\rangle.\]
 
+\section{Composition with smooth functions}
+
+Recall that, in the case where \(N = 2\), for \(\mathbf{X} = (X, \mathbb{X}) \in \CC^{\alpha}([0, T], V)\), 
+\((Y, Y') \in \CD_X^{2\alpha}([0, T], W)\) and \(\phi \in C^2_b(W, \bar W)\), we have 
+\[(\phi(Y), \phi(Y)') = (\phi(Y), D\phi(Y) Y') \in \CD_X^{2\alpha}([0, T], \bar W).\]
+% \graybox{\begin{proof}
+%   This follows directly by estimates on the remainder of Taylor expansion:
+%   \begin{equs}
+%     \|R^{\phi(Y)}_{s, t}\| & = \|\phi(Y_t) - \phi(Y_s) - D\phi(Y_s) Y'_s X_{s, t}\|\\
+%     & = \|\phi(Y_t) - \phi(Y_s) - D\phi(Y_s) (Y_t - Y_s - R^Y_{s, t})\|\\
+%     & \le \|D\phi(Y_s)\| \|R^Y_{s, t}\| + 
+%         \frac{\|Y_{s, t}\|^2}{2} \sup_{\lambda \in [0, 1]} \|D^2\phi(\lambda Y_t + (1 - \lambda) Y_s)\|\\
+%     & = O(|t - s|^{2\alpha}).
+%   \end{equs}
+% \end{proof}}\\
+We in this section generalize this fact for branched rough paths.
+
+\begin{proposition}
+  Let \(\mathbf{X}\) be a level-\(N\) \(\gamma\)-H\"older rough path and \(\mathbf{Y}\) 
+  be a \(d\)-dimensional controlled rough path against \(\mathbf{X}\). 
+  Then, for any \(\phi \in C^{N - 1}_b(\mathbb{R}^d, \mathbb{R}^d)\), defining \(\phi(\mathbf{Y})\) by
+  \[\phi(\mathbf{Y}) = \sum_{f \in \CF_{N - 1}} \partial^f_X \phi(\mathbf{Y}) f\]
+  where 
+  \[\partial^f_X \phi(\mathbf{Y}) = \sum_{\sigma \in \mathrm{Sym}(\# f)} \frac{1}{(\# f)!}D^{\# f} 
+      \phi(Y)[(\partial^{h_{\sigma(i)}}_X Y)_{i = 1}^{\# f}]\]
+  for any \(f = \prod_{i = 1}^{\# f} h_i \in \CF_{N - 1}\), we have that \(\phi(\mathbf{Y})\) is 
+  also a controlled rough path against \(\mathbf{X}\).
+\end{proposition}
 
 
 \end{document}

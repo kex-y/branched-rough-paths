@@ -41,7 +41,7 @@
 	\expandafter\gdef\csname MH@symb@#1ss\endcsname{\scalebox{0.65}{\tikzsetnextfilename{symbol#1}%
 	\tikz[baseline=#2,scale=0.15,draw=symbols,line join=round,line cap=round]{#3}}}%
 	}
-\def\<#1>{\ifmmode\mathchoice{\csname MH@symb@#1\endcsname}{\csname MH@symb@#1\endcsname}{\csname MH@symb@#1s\endcsname}{\csname MH@symb@#1ss\endcsname}\else\csname MH@symb@#1\endcsname\fi}
+\def\tree<#1>{\ifmmode\mathchoice{\csname MH@symb@#1\endcsname}{\csname MH@symb@#1\endcsname}{\csname MH@symb@#1s\endcsname}{\csname MH@symb@#1ss\endcsname}\else\csname MH@symb@#1\endcsname\fi}
 \makeatother
 
 

@@ -322,7 +322,7 @@ For the sake of computation, we introduce the following short hands. For all \(f
   \end{equs}
 \end{proof}
 Using these notations, we have the equivalent formulation of the remainder term.
-\begin{proposition}
+\begin{proposition}\label{prop:remainder}
   For a \(\gamma\)-H\"older rough path \(\mathbf{X}\) and a path \(\mathbf{Y} : [0, T] \to \CH^*_{N - 1}\), 
   for all \(f \in \CF_{N - 1}\), 
   \[R_{st}^f = \delta (\partial^f_X Y)_{st} - 
@@ -333,13 +333,13 @@ Using these notations, we have the equivalent formulation of the remainder term.
   Indeed, 
   \begin{equs}
     R^f_{st} & = \partial^f_X Y_t - \< \mathbf{X}_{st} * f, \mathbf{Y}_s\>
-        = \partial^f_X Y_t - \<\mathbf{X}_{st} \otimes f, \Delta\mathbf{Y}_s\>\\
+        = \partial^f_X Y_t - \<\mathbf{X}_{st} \otimes f, \Delta\mathbf{Y}_s\>\\[1ex]
       & = \partial^f_X Y_t - \<\mathbf{X}_{st} \otimes f, \mathbf{1} \otimes \mathbf{Y}_s\> 
-          - \<\mathbf{X}_{st} \otimes f, \Delta_r\mathbf{Y}_s\>\\
+          - \<\mathbf{X}_{st} \otimes f, \Delta_r\mathbf{Y}_s\>\\[1ex]
       & = \delta (\partial^h_X Y)_{st} - \sum_{h, l} c_r(\mathbf{Y}_s, h, l) 
             \<\mathbf{X}_{st} \otimes f, h \otimes l\>\\
       & = \delta (\partial^h_X Y)_{st} - \sum_{h, l} \sum_g c_r(g, h, l) \partial^g_X Y_s 
-            \<\mathbf{X}_{st}, h\> \mathbf{1}_{f = l}\\
+            \<\mathbf{X}_{st}, h\> \<f, l\>\\
       & = \delta (\partial^h_X Y)_{st} - \sum_{g, h} c_r(g, h, h) \partial^g_X Y_s 
             \<\mathbf{X}_{st}, h\> 
   \end{equs}
@@ -387,7 +387,7 @@ lemma to \(I_{st}\) to obtain
 with \(\CP\) being a partition of \([s, t]\) and we have the remainder inequality 
 \begin{align*}
   & \left|\int_s^t Y_r \dd \mathbf{X}_r - \sum_{f \in \CF_{N - 1}} \< f, \mathbf{Y}_s\> \< \mathbf{X}_{st}, [f]\>\right|\\
-  \lesssim & \left(\sum_{f \in \CF_{N - 1}} \|R^f\|_{(N - |f|)\gamma} \|\mathbf{X}^{[f]}\|_{(|f| + 1)\gamma}\right)|t - s|^{(N + 1)\gamma}
+  & \lesssim \left(\sum_{f \in \CF_{N - 1}} \|R^f\|_{(N - |f|)\gamma} \|\mathbf{X}^{[f]}\|_{(|f| + 1)\gamma}\right)|t - s|^{(N + 1)\gamma}
 \end{align*}
 We note that at this point \(\int_s^{\cdot} Y_r \dd \mathbf{X}_r\) takes value in \(\mathbb{R}\) and is notably not a tree/forest 
 path. As we would like to talk about rough differential equations, namely we would want to phrase a fixed point 
@@ -419,14 +419,14 @@ Recall that, in the case where \(N = 2\), for \((X, \mathbb{X}) \in \CC^{\alpha}
 % \end{proof}}\\
 This fact can be generalized for branched rough paths resulting in the following.
 
-\begin{proposition}
+\begin{proposition}\label{prop:comp}
   Let \(\mathbf{X}\) be a level-\(N\) \(\gamma\)-H\"older rough path and \(\mathbf{Y}\) 
   be a \(d\)-dimensional controlled rough path against \(\mathbf{X}\). 
   Then, for any \(\phi \in C^{N - 1}_b(\mathbb{R}^d, \mathbb{R}^d)\), defining \(\phi(\mathbf{Y})\) by
   \[\phi(\mathbf{Y}) = \sum_{f \in \CF_{N - 1}} \partial^f_X \phi(\mathbf{Y}) f\]
   where 
-  \[\partial^f_X \phi(\mathbf{Y}) = \sum_{h_1 \cdots h_{\# f} = f} \frac{1}{(\# f)!}D^{\# f} 
-      \phi(Y)[(\partial^{h_i}_X Y)_{i = 1}^{\# f}]\]
+  \[\partial^f_X \phi(\mathbf{Y}) = \sum_{\tau_1 \cdots \tau_{\# f} = f} \frac{1}{(\# f)!}D^{\# f} 
+      \phi(Y)[(\partial^{\tau_i}_X Y)_{i = 1}^{\# f}]\]
   for any \(f \in \CF_{N - 1}\), we have that \(\phi(\mathbf{Y})\) is 
   also a controlled rough path against \(\mathbf{X}\).
 \end{proposition}
@@ -439,7 +439,8 @@ In the level \(N = 2\) case, we have that
           + \|D\sigma(x_s) R^{\mathbf{Y}}_{st}\|,
   \end{split}
 \end{equation}
-I suspect the following generalization holds true:
+I suspect the following generalization holds true 
+(maybe require \(\mathbf{Y}\) to satisfy the RDE \(\dd \mathbf{Y}_t = \phi(\mathbf{Y}_t) \dd \mathbf{X}_t\)):
 \begin{proposition}
   For any \(\tau \in \CF_{N - 2}\), we have 
   \begin{equs}
@@ -450,6 +451,80 @@ I suspect the following generalization holds true:
   where the extra terms involve \(R^{\mathbf{Y}, \mathbf{1}}_{st}\), \(\<\mathbf{X}_{st}, \sigma\>\) for some 
   \(\sigma \in \CF_{N - 1}\).
 \end{proposition}
+
+This is certainly the case for \(\tau = \mathbf{1}\):
+
+\begin{lemma}\label{lem:crone}
+  For any \(f, g \in \CF_{N - 1} \setminus \{\mathbf{1}\} =: \CF_{N - 1}^+\), \(c_r(f, g, \mathbf{1}) = \<f, g\>\).
+\end{lemma}
+
+\begin{lemma}\label{lem:remain-Y-one}
+  Assuming that \(\mathbf{Y}\) satisfies the RDE \(\dd \mathbf{Y}_t = \phi(\mathbf{Y}_t) \dd \mathbf{X}_t\),
+  then, denoting \(\CT_{N - 1}^{+, \tree<X'>} := \CT_{N - 1} \setminus \{\mathbf{1}, \tree<X'>\}\), we have that
+  \begin{equs}
+    \phi(Y_s) \<\mathbf{X}_{st}, \tree<X'>\> 
+    & = \delta(Y)_{st} - R^{\mathbf{Y}, \mathbf{1}}_{st} 
+        - \sum_{\tau \in \CT_{N - 1}^{+, \tree<X'>}} \partial^\tau_X Y_s \<\mathbf{X}_{st}, \tau\>\\
+    & = \delta(Y)_{st} - R^{\mathbf{Y}, \mathbf{1}}_{st} 
+        - \sum_{f \in \CF_{N - 2}^+} \partial^f_X \phi(Y_s) \<\mathbf{X}_{st}, [f]\>
+  \end{equs}
+\end{lemma}
+
+\begin{proposition}
+  Taking \(\mathbf{X}, \mathbf{Y}\) as above, we have
+  \[R^{\phi(\mathbf{Y}), \mathbf{1}}_{st} = 
+    \delta(\phi(Y))_{st} - \sum_{k = 1}^{N - 1} \frac{1}{k!} D^k \phi(Y_s)[(\delta Y_{st})^{\otimes k}] - R^\sharp_{st}\]
+  where \(R^\sharp\) has regularity \(\ge N\gamma\).
+\end{proposition}
+\begin{proof}
+  By Proposition~\ref{prop:remainder} and Lemma~\ref{lem:crone}, we have that
+  \begin{align*}
+    R^{\phi(\mathbf{Y}), \mathbf{1}}_{st} & = \delta(\phi(Y))_{st} - 
+      \sum_{f \in \CF_{N - 1}^+} \partial^f_X \phi(Y_s) \< \mathbf{X}_{st}, f\>\\
+    & = \delta(\phi(Y))_{st} - \sum_{k = 1}^{N - 1} \partial^{(\tree<X'>)^k}_X \phi(Y_s) \< \mathbf{X}_{st}, \tree<X'>\>^k 
+      - \sum_{f \notin \{(\tree<X'>)^k\}_{k = 1}^{N - 1}} \partial^f_X \phi(Y_s) \< \mathbf{X}_{st}, f\>.
+  \end{align*}
+  On the other hand, by Proposition~\ref{prop:comp}, 
+  \begin{equs}
+    \partial^{(\tree<X'>)^k}_X \phi(Y_s) & = \frac{1}{k!} D^k \phi(Y_s)[(\partial^{\tree<X'>}_X Y_s)^{\otimes k}]
+      = \frac{1}{k!} D^k \phi(Y_s) [(\phi(Y_s))^{\otimes k}].
+  \end{equs}
+  So, combining with Lemma~\ref{lem:remain-Y-one}, we have that
+  \begin{equs}
+    \partial^{(\tree<X'>)^k}_X \phi(Y_s) \< \mathbf{X}_{st}, \tree<X'>\>^k 
+    = & \frac{1}{k!} D^k \phi(Y_s) [(\phi(Y_s)\< \mathbf{X}_{st}, \tree<X'>\>)^{\otimes k}]\\
+    = & \frac{1}{k!} D^k \phi(Y_s) \left[\left(\delta Y_{st} - R^{\mathbf{Y}, \mathbf{1}}_{st} 
+        - \sum_{\tau \in \CT_{N - 1}^{+, \tree<X'>}} \partial^\tau_X Y_s \<\mathbf{X}_{st}, \tau\>\right)^{\otimes k}\right]\\
+    = & \frac{1}{k!} D^k \phi(Y_s) [(\delta Y_{st})^{\otimes k}] + S_1 + S_2
+  \end{equs}
+  where 
+  \[S_1 := \frac{1}{k!}\sum_{\tau_1, \dots, \tau_k \in \CT_{N - 1}^{+, \tree<X'>}} 
+            D^k \phi(Y_s) [\partial^{\tau_1}_X Y_s \<\mathbf{X}_{st}, \tau_1\> \otimes \cdots 
+              \otimes \partial^{\tau_k}_X Y_s \<\mathbf{X}_{st}, \tau_k\>],\]
+  and 
+  \[S_2 := \frac{1}{k!}\sum_{m = 0}^{k - 1} \sum_{\tau_1, \dots, \tau_m \in \CT_{N - 1}^{+, \tree<X'>}} 
+            D^k \phi(Y_s) [(R^{\mathbf{Y}, \mathbf{1}}_{st})^{\otimes (k - m)} \otimes 
+              \partial^{\tau_1}_X Y_s \<\mathbf{X}_{st}, \tau_1\> \otimes \cdots 
+              \otimes \partial^{\tau_m}_X Y_s \<\mathbf{X}_{st}, \tau_m\>].\]
+  Now, by Proposition~\ref{prop:comp}, we observe that \(S_1\) can be written as 
+  \begin{equs}
+    S_1 & = \sum_{\tree<X'> \notin f \in \CF_{k(N - 1)}}\mathbf{1}_{\{\# f = k\}} 
+    \sum_{\tau_1 \cdots \tau_k = f} \frac{1}{(\# f)!}
+    D^k \phi(Y_s) [\partial^{\tau_1}_X Y_s \otimes \cdots 
+      \otimes \partial^{\tau_k}_X Y_s] \prod_{i = 1^k}\<\mathbf{X}_{st}, \tau_i\>\\
+    & = \sum_{\tree<X'> \notin f \in \CF_{k(N - 1)}}\mathbf{1}_{\{\# f = k\}} \partial^f_X \phi(Y_s) \<\mathbf{X}_{st}, f\>
+  \end{equs}
+  Thus, we have 
+  \begin{equs}
+    R^{\phi(\mathbf{Y}), \mathbf{1}}_{st}
+      = & \delta(\phi(Y))_{st} - \sum_{k = 1}^{N - 1} \frac{1}{k!} D^k \phi(Y_s)[(\delta Y_{st})^{\otimes k}] \\
+      & - \sum_{\tree<X'> \notin f \in \CF_{k(N - 1)} \setminus \CF_{N - 1}} \mathbf{1}_{\{\# f = k\}} 
+          \partial^f_X \phi(Y_s) \<\mathbf{X}_{st}, f\> 
+      - S_2
+  \end{equs}
+  as desired.
+\end{proof}
+
 
 \section{Relation with regularity structures}
 

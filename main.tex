@@ -383,27 +383,28 @@ Using these notations, we have the equivalent formulation of the remainder term.
 
 As a consequence of the above proposition, in the case where \((N + 1) \gamma > 1\), we may apply the sewing 
 lemma to \(I_{st}\) to obtain 
-\[\int_s^t Y_r \dd X_r := \lim_{|\CP| \to 0} \sum_{(u, v) \in \CP} I_{uv}\]
+\[\int_s^t Y_r \dd \mathbf{X}_r := \lim_{|\CP| \to 0} \sum_{(u, v) \in \CP} I_{uv}\]
 with \(\CP\) being a partition of \([s, t]\) and we have the remainder inequality 
 \begin{align*}
-  & \left|\int_s^t Y_r \dd X_r - \sum_{f \in \CF_{N - 1}} \< f, \mathbf{Y}_s\> \< \mathbf{X}_{st}, [f]\>\right|\\
+  & \left|\int_s^t Y_r \dd \mathbf{X}_r - \sum_{f \in \CF_{N - 1}} \< f, \mathbf{Y}_s\> \< \mathbf{X}_{st}, [f]\>\right|\\
   \lesssim & \left(\sum_{f \in \CF_{N - 1}} \|R^f\|_{(N - |f|)\gamma} \|\mathbf{X}^{[f]}\|_{(|f| + 1)\gamma}\right)|t - s|^{(N + 1)\gamma}
 \end{align*}
-We note that at this point \(\int_s^{\cdot} Y_r \dd X_r\) takes value in \(\mathbb{R}\) and is notably not a tree/forest 
+We note that at this point \(\int_s^{\cdot} Y_r \dd \mathbf{X}_r\) takes value in \(\mathbb{R}\) and is notably not a tree/forest 
 path. As we would like to talk about rough differential equations, namely we would want to phrase a fixed point 
-argument involving rough integrals, we need to extend the \(\mathbb{R}\)-valued path \(\int_s^{\cdot} Y_r \dd X_r\) 
-to a forest path \(\int_s^{\cdot} \mathbf{Y}_r \dd X_r\). This is achieved by specifying 
-\(\partial^f_X \left(\int_s^{\cdot} \mathbf{Y}_r \dd X_r\right) = \< f, \int_s^{\cdot} \mathbf{Y}_r \dd X_r \>\) 
+argument involving rough integrals, we need to extend the \(\mathbb{R}\)-valued path \(\int_s^{\cdot} Y_r \dd \mathbf{X}_r\) 
+to a forest path \(\int_s^{\cdot} \mathbf{Y}_r \dd \mathbf{X}_r\). This is achieved by specifying 
+\(\partial^f_X \left(\int_s^{\cdot} \mathbf{Y}_r \dd \mathbf{X}_r\right) = \< f, \int_s^{\cdot} \mathbf{Y}_r \dd \mathbf{X}_r \>\) 
 for each \(f \in \CF_{N - 1}^*\) with 
-\[\< \mathbf{1}, \int_s^{\cdot} \mathbf{Y}_r \dd X_r \> = \int_s^{\cdot} Y_r \dd X_r.\]
-For \(f \in \CF_{\le N - 2}\), we set 
-\[\< [f], \int_0^{\cdot} \mathbf{Y}_r \dd X_r \> = \< f, \mathbf{Y}_{\cdot}\>,\]
-Finally, for \(f_1 \cdot f_2 \in \CF_{\le N - 1}\),
-\[\< f_1 \cdot f_2, \int_0^{\cdot} \mathbf{Y}_r \dd X_r \> = 0.\]
+\begin{itemize}
+  \item \(\partial^{\mathbf{1}}_X \int_s^{\cdot} \mathbf{Y}_r \dd \mathbf{X}_r = \int_s^{\cdot} Y_r \dd \mathbf{X}_r\).
+  \item For \(f \in \CF_{\le N - 2}\), we set \(\partial^{[f]}_X \int_0^{\cdot} \mathbf{Y}_r \dd \mathbf{X}_r 
+    = \partial^f_X \mathbf{Y}_{\cdot}\).
+    \item For \(f_1 \cdot f_2 \in \CF_{\le N - 1}\), \(\partial^{f_1 \cdot f_2}_X \int_0^{\cdot} \mathbf{Y}_r \dd \mathbf{X}_r = 0\).
+\end{itemize}
 
 \section{Composition with smooth functions}
 
-Recall that, in the case where \(N = 2\), for \(\mathbf{X} = (X, \mathbb{X}) \in \CC^{\alpha}([0, T], V)\), 
+Recall that, in the case where \(N = 2\), for \((X, \mathbb{X}) \in \CC^{\alpha}([0, T], V)\), 
 \((Y, Y') \in \CD_X^{2\alpha}([0, T], W)\) and \(\phi \in C^2_b(W, \bar W)\), we have 
 \[(\phi(Y), \phi(Y)') = (\phi(Y), D\phi(Y) Y') \in \CD_X^{2\alpha}([0, T], \bar W).\]
 % \graybox{\begin{proof}
